@@ -1,0 +1,114 @@
+[project]
+name = "flet-extension"
+version = "0.2.0"
+description = "A comprehensive Flet extension demonstrating advanced widget and service capabilities for building custom Flet controls."
+readme = "README.md"
+authors = [{ name = "Flet contributors", email = "hello@flet.dev" }]
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "flet>=0.70.0",
+]
+keywords = ["flet", "flutter", "extension", "widget", "service", "custom-controls"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+    "Framework :: Flutter",
+]
+
+[project.urls]
+Homepage = "https://flet.dev"
+Documentation = "https://flet-dev.github.io/flet-extension"
+Repository = "https://github.com/flet-dev/flet-extension"
+Issues = "https://github.com/flet-dev/flet-extension/issues"
+Changelog = "https://github.com/flet-dev/flet-extension/blob/main/CHANGELOG.md"
+
+[tool.setuptools.package-data]
+"flet_extension.flutter.flet_extension" = ["**/*"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["flet_extension*"]
+exclude = ["tests*"]
+
+[dependency-groups]
+test = [
+    "pytest >=7.2.0",
+]
+lint = [
+    "ruff >=0.11.7",
+]
+dev = [
+    "pre-commit >=4.2.0",
+    { include-group = 'lint' },
+    { include-group = 'test' },
+]
+docs-coverage = [
+    "docstr-coverage >=2.3.2",
+]
+docs = [
+    "mkdocs >=1.6.1",
+    "mkdocs-material >=9.6.15",
+    "mkdocstrings-python >=1.16.12",
+    "mkdocstrings-python-xref >=1.16.3",
+    "mike >=2.1.3",
+    "markdown >=3.6",
+    "pymdown-extensions >=10.16",
+    "mkdocs-exclude >=1.0.2",
+    "mkdocs-glightbox >=0.4.0",
+    "mkdocs-open-in-new-tab >=1.0.8",
+    "mkdocs-section-index >=0.3.10",
+    "griffe-modernized-annotations >=1.0.8",
+    "griffe-warnings-deprecated >=1.1.0",
+    "pygments >=2.16",
+    "markdown-exec[ansi] >=1.11.0",
+    "pydocstyle >=6.3.0",
+    "linkcheckmd >=1.4.0",
+    { include-group = 'docs-coverage' },
+]
+all = [
+    { include-group = 'dev' },
+    { include-group = 'docs' },
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+fix = true
+show-fixes = true
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I"
+]
+preview = true
+pydocstyle = { convention = 'google' }
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
