@@ -7,13 +7,12 @@ authors = [{ name = "Flet contributors", email = "hello@flet.dev" }]
 license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [
-    "flet>=0.70.0",
+    "flet",
 ]
 keywords = ["flet", "flutter", "extension", "widget", "service", "custom-controls"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
@@ -33,7 +32,7 @@ Issues = "https://github.com/flet-dev/flet-extension/issues"
 Changelog = "https://github.com/flet-dev/flet-extension/blob/main/CHANGELOG.md"
 
 [tool.setuptools.package-data]
-"flet_extension.flutter.flet_extension" = ["**/*"]
+"flutter.flet_extension" = ["**/*"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
